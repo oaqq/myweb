@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ANSI"> 
+<title>2021物资台账对应照片</title> 
+<style>
+#modal {
+	display: none;
+}
+.modal {
+    margin: auto;
+    padding-top: 5%;
+    width: 50%;
+    height: 80%;
+    z-index: 1;
+}
+ 
+.modal img {
+    animation-name: zoom;
+	animation-duration: 0.6s;
+    display: block;
+    padding: 10px;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: 0 2px 6px rgb(0, 0, 0, 0.2), 0 10px 20px rgb(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border: 1px solid white;
+}
+ 
+@keyframes zoom {
+    from {transform: scale(0.1)}
+    to {transform: scale(1)}
+}
+ 
+.thum-img {
+    float: left;
+    width: 520px;
+    height: 520px;
+    margin: auto;
+    display: block;
+    padding: 25px;
+}
+.arts {
+         width: 100%;
+		 }	
+	 
+.arts .item {
+
+         flex: 1;
+		 padding: 40px;
+
+		}		
+		
+		
+.arts .item img {			
+		 max-width: 100%;
+
+		 height: 198px;
+		 }	
+.titlefont {
+        width: 100%;
+        padding: 25px;
+        margin: auto;
+		color: #330000;
+		font-size: 1.4em;
+		}		
+		
+		
+
+
+</style>
+	</head>
+<body>
+<!-- 先来实现弹窗 -->
+<div style='position:fixed;width:100%;height:100%;background-color:rgb(0,0,0,0.65)' id='modal'>
+<div class='modal' id='modalw'>
+    <img id='bgImg' />
+</div>
+</div>
+ 
+ 
+<!-- 下面则是主页内容，先只给几个图片 -->
+ <div id="arts" class="arts">
+		       <h1 class="titlefont"> 【应急物资图片】 </h2>
+
+
+
+			   <div style="width:100%;display: flex;">
+	                       <div class="item">
+    <img onclick='showBgImg(this)' class='thum-img' src='http://f.hiphotos.baidu.com/image/pic/item/80cb39dbb6fd5266cdb2ba16a718972bd4073612.jpg' />
+	                      <p class="titlefont">01 手电筒</p>
+	                      </div>
+	                       <div class="item">
+ 	<img class='thum-img' src='http://a.hiphotos.baidu.com/image/pic/item/e61190ef76c6a7ef5e886d03f1faaf51f3de666d.jpg' onclick='showBgImg(this)'/> 
+	                       <p class="titlefont">02 铁锹</p>
+	                      </div>
+						  
+	                       <div class="item">
+ 	<img class='thum-img' src='http://a.hiphotos.baidu.com/image/pic/item/e61190ef76c6a7ef5e886d03f1faaf51f3de666d.jpg' onclick='showBgImg(this)'/> 
+	                       <p class="titlefont">03 镀锌铁丝8#</p>
+	                      </div>						  
+						  
+	                       <div class="item">
+ 	<img class='thum-img' src='http://a.hiphotos.baidu.com/image/pic/item/e61190ef76c6a7ef5e886d03f1faaf51f3de666d.jpg' onclick='showBgImg(this)'/> 
+	                       <p class="titlefont">04 喊话器SH-787A</p>
+	                      </div>						  
+						  
+	                       <div class="item">
+ 	<img class='thum-img' src='http://a.hiphotos.baidu.com/image/pic/item/e61190ef76c6a7ef5e886d03f1faaf51f3de666d.jpg' onclick='showBgImg(this)'/> 
+	                       <p class="titlefont">05 应急灯海洋王fw6102zfoz</p>
+	                      </div>			
+
+
+                </div>
+				
+				
+			   <div style="width:100%;display: flex;">
+	                       <div class="item">
+    <img onclick='showBgImg(this)' class='thum-img' src='http://f.hiphotos.baidu.com/image/pic/item/80cb39dbb6fd5266cdb2ba16a718972bd4073612.jpg' />
+	                      <p class="titlefont">06 awdawd</p>
+	                      </div>
+	                       <div class="item">
+ 	<img class='thum-img' src='http://a.hiphotos.baidu.com/image/pic/item/e61190ef76c6a7ef5e886d03f1faaf51f3de666d.jpg' onclick='showBgImg(this)'/> 
+	                       <p class="titlefont">07 affawf</p>
+	                      </div>
+						  
+	                       <div class="item">
+ 	<img class='thum-img' src='http://a.hiphotos.baidu.com/image/pic/item/e61190ef76c6a7ef5e886d03f1faaf51f3de666d.jpg' onclick='showBgImg(this)'/> 
+	                       <p class="titlefont">08 asdfsdg</p>
+	                      </div>						  
+						  
+	                       <div class="item">
+ 	<img class='thum-img' src='http://a.hiphotos.baidu.com/image/pic/item/e61190ef76c6a7ef5e886d03f1faaf51f3de666d.jpg' onclick='showBgImg(this)'/> 
+	                       <p class="titlefont">04 喊话器SH-787A</p>
+	                      </div>						  
+						  
+	                       <div class="item">
+ 	<img class='thum-img' src='http://a.hiphotos.baidu.com/image/pic/item/e61190ef76c6a7ef5e886d03f1faaf51f3de666d.jpg' onclick='showBgImg(this)'/> 
+	                       <p class="titlefont">05 应急灯海洋王fw6102zfoz</p>
+	                      </div>			
+
+
+                </div>				
+ 
+<script>
+    var modal = document.getElementById('modal');
+    var bgImg = document.getElementById('bgImg');
+ 
+ 
+    function showBgImg(e) {
+		modal.style.display = 'block';
+		bgImg.src = e.src;
+	}
+ 
+	bgImg.onclick = function() {
+		modal.style.display = 'none';
+	}
+</script>
+</body>
+</html>

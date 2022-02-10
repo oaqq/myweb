@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0033)https://ybzj.neocities.org/tphdb/ -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html>
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>图片化打包</title>
     <style>
       .pad1{
@@ -26,72 +26,72 @@
     </style>
   </head>
   <body>
-    <h1>图片化打包</h1>
-    <details open="">
-        <summary>使用说明</summary>
+    <h1>图片加密、解码</h1>
+    <details open>
+        <summary>使用方法详细说明</summary>
         <div>
-          这是一个用来方便地在社交平台上传输文件的程序，原理是将图片与文件结合，在发送图片的同时发送文件。<br><span style="color:#ff4d00">使用此程序的"提取文件"功能所获得的文件，其来源均是此程序的其他使用者，与此程序本身没有任何关系。<br>此程序的所有图片处理功能都在本地进行，不会将任何文件上传至网上。<br>此程序加密功能来源于浏览器API，此程序不提供任何对于用户文件保密性的担保，也对此不负任何责任。<br>此程序的本意是为社交平台用户提供便利，请勿用此程序进行非法行为，否则作者概不负责。</span>
+          1：这是一个可以将不方便在互联网展示的图片经过加密处理后发送到互联网的工具【制作加密文件】<br />2：同时也是个可以将别人的加密文件还原成原始图片的工具【解密下载文件】<br /><span style="color:#ff4d00">使用方法：<br />制作加密：（打开下方“▶制作加密文件”栏）点击第2项末尾【选择文件】按钮，选择并添加希望加密的文件，（设置其他加密细节，嫌麻烦可以不用改）最后点击【加密打包】按钮即可在下方生成加密了文件的图片，下载该图片到电脑后即可使用（切勿用拍屏，截图等方法存储此生成的图片）<br />文件解密：（打开下方“▶解密下载文件”栏）点击【选择文件】，弹出窗口选择别人发给你的“加密图片”，（如果有密码，点击【待解密】按钮，填写密码后确定。没有密码的话不填）最后点击【成功】按钮即可在下方看到内容。<br /><br />问题汇总：<br />（加密者：如果别人反映你制作的加密图片无法解码，很有可能因为你上传至网络的加密图并非本工具制作生成的原图，也可能网站或聊天工具私自对你上传的图片进行了压缩转码）<br />（解密者：如果解码失败，很有可能因为你下载的加密图并非制作者发布的原图）<br /></span>
         </div>
         <div>
-          此程序不兼容图片文件夹
+          此工具可以利用网页下载到电脑离线使用。该工具源版来自：百度（图片文件夹吧）贴吧，注释解释说明：OTA
         </div>
     </details>
-    <details open="">
-      <summary>打包文件</summary>
+    <details>
+      <summary>制作加密文件（分享者用）</summary>
       <div class="pad2">
-      选择表图 
-      <input id="ipt3" type="file" accept="image/*" multiple="">
+      1：选择表图（此项可以不选，工具自动会生成）&ensp;
+      <input id="ipt3" type="file" accept="image/*" multiple />
       </div>
       <div id="encodeipt" class="pad2">
-      选择文件 
-      <input type="file" multiple=""></div>
+      2：选择文件（添加您希望“隐藏加密”的文件）&ensp;
+      </div>
       <div class="pad2">
-      加密密码 
-      <input style="width:150px;height:1.25rem" type="text" id="encodepassword" placeholder="请输入密码"> 
+      3：加密密码（此项强化解码难度，默认可不填）&ensp;
+      <input style="width:150px;height:1.25rem" type="text" id="encodepassword" placeholder="请输入密码" />&ensp;
       </div>
       <div class="pad2"> 
-      分片数量 
-      <input style="width:75px" type="number" id="slice" value="1">
+      4：分片数量（可自行将加密文件分为多个小文件）&ensp;
+      <input style="width:75px" type="number" id="slice" value="1"/>
       </div>
       <div class="pad2">
-            <input checked="" type="checkbox" id="check1">显示备注 <input type="text" id="text" style="width:150px;height:1.25rem" value="图片化打包">
-      <br><input checked="" type="checkbox" id="check2">显示序号
-      <br><input type="checkbox" id="check3">显示文件名
-      <br><input type="checkbox" id="check4">显示文件大小
+            <input checked type="checkbox" id="check1">显示备注</input>&ensp;<input type="text" id="text" style="width:150px;height:1.25rem" value="图片化打包" />
+      <br /><input checked type="checkbox" id="check2">显示序号</input>
+      <br /><input type="checkbox" id="check3">显示文件名</input>
+      <br /><input type="checkbox" id="check4">显示文件大小</input>
       </div>
       <div class="pad2">
-      <button id="pack"> 打包 </button> <span id="packinfo" style="display:none">正在打包</span>
+      <button id="pack">&ensp;加密打包&ensp;</button>&emsp;<span id="packinfo" style="display:none">正在打包</span>
       </div>
       <div class="pad2" id="display">
         
       </div>
     </details>
-    <details open="">
-      <summary>提取文件</summary>
+    <details>
+      <summary>解密下载文件（伸手党用）</summary>
       <div id="decodeipt" class="pad1">
-      <button id="clear"> 清空 </button> 
-      <input type="file" accept="image/png" multiple=""></div>
-      <div class="pad1">
-        <span id="failbutton" style="outline: rgb(204, 204, 204) solid 1px; display: inline-block; text-align: center; min-width: 64px; background: rgb(255, 255, 255);">失败</span> 
-        <span id="pendingbutton" style="outline: rgb(204, 204, 204) solid 1px; display: inline-block; text-align: center; min-width: 64px; background: rgb(238, 238, 238);">待解密</span> 
-        <span id="successbutton" style="outline: rgb(204, 204, 204) solid 1px; display: inline-block; text-align: center; min-width: 64px; background: rgb(255, 255, 255);">成功</span>
+      <button id="clear">&ensp;清空&ensp;</button>&emsp;
       </div>
-      <div id="fail" style="display: none;">
+      <div class="pad1">
+        <span id="failbutton">失败</span>&ensp;
+        <span id="pendingbutton">待解密</span>&ensp;
+        <span id="successbutton">成功</span>
+      </div>
+      <div id="fail">
       <div class="pad1">
       以下图片不是图片化打包!
       </div>
-      <div></div></div>
-      <div id="pending" style="display: block;">
+      </div>
+      <div id="pending">
       <div class="pad1">
-      <input style="width:150px;height:1.25rem" type="text" id="decodepassword" placeholder="请输入密码"> 
-      <button id="decode"> 确定 </button>
-       <span id="decodeinfo"></span>
+      <input style="width:150px;height:1.25rem" type="text" id="decodepassword" placeholder="请输入密码" />&ensp;
+      <button id="decode">&ensp;确定&ensp;</button>
+      &ensp;<span id="decodeinfo"></span>
       </div>
-      <div id="innerpending" style="margin-bottom:0.5rem"><div></div></div>
-      <div id="assembling"><div></div></div>
+      <div id="innerpending" style="margin-bottom:0.5rem"></div>
+      <div id="assembling"></div>
       </div>
-      <div id="success" style="display: none;">
-      <div></div></div>
+      <div id="success">
+      </div>
       
     </details>
     <script>
@@ -1005,5 +1005,5 @@ function sizec(bytes){
         })
       }
     </script>
-  
-</body></html>
+  </body>
+</html>
